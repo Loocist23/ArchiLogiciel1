@@ -229,7 +229,40 @@ public class Main {
 
         ///////////////////////////////////////////////
 
-        // ON TEST AVEC
+        // ON TEST AVEC LES PATTERN DAO / DTO
+
+        System.out.println("\n\n");
+
+        PersonneDAO dao = new PersonneDAOImpl();
+
+        // Ajouter des personnes
+        dao.add(new PersonneDTO(1, "Dupont", "Jean"));
+        dao.add(new PersonneDTO(2, "Martin", "Sophie"));
+        dao.add(new PersonneDTO(3, "Durand", "Paul"));
+
+        // Afficher toutes les personnes
+        System.out.println("Liste des personnes :");
+        for (PersonneDTO personne : dao.getAll()) {
+            System.out.println(personne);
+        }
+
+        // Récupérer une personne par id
+        System.out.println("\nRécupérer la personne avec id 2 :");
+        System.out.println(dao.get(2));
+
+        // Mettre à jour une personne
+        System.out.println("\nMise à jour de la personne avec id 2 :");
+        dao.save(new PersonneDTO(2, "Martin", "Claire"));
+
+        // Supprimer une personne
+        System.out.println("\nSuppression de la personne avec id 3 :");
+        dao.delete(3);
+
+        // Afficher toutes les personnes après suppression
+        System.out.println("\nListe des personnes après suppression :");
+        for (PersonneDTO personne : dao.getAll()) {
+            System.out.println(personne);
+        }
 
     }
 }
