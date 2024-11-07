@@ -197,5 +197,39 @@ public class Main {
         // Tester la communication via NYLaGuardia
         helico1.envoyerMessage("En route vers le point de rendez-vous.");
 
+        ///////////////////////////////////////////
+
+        // ON TEST LE CHAIN OF RESPONSABILITY
+
+        System.out.println("\n\n");
+
+        CentreAppel centre1 = new CentreAppelLevel1();
+        CentreAppel centre2 = new CentreAppelLevel2();
+        CentreAppel centre3 = new CentreAppelLevel3();
+        CentreAppel centre4 = new CentreAppelLevel4();
+
+        // Définir la chaîne de responsabilité
+        centre1.setNext(centre2);
+        centre2.setNext(centre3);
+        centre3.setNext(centre4);
+
+        // Tester différents appels
+        Appel appel1 = new Appel(1, "Problème simple");
+        Appel appel2 = new Appel(2, "Problème modéré");
+        Appel appel3 = new Appel(3, "Problème complexe");
+        Appel appel4 = new Appel(4, "Problème critique");
+        Appel appel5 = new Appel(5, "Problème inconnu");
+
+        // Traiter les appels
+        centre1.traiterAppel(appel1);
+        centre1.traiterAppel(appel2);
+        centre1.traiterAppel(appel3);
+        centre1.traiterAppel(appel4);
+        centre1.traiterAppel(appel5);
+
+        ///////////////////////////////////////////////
+
+        // ON TEST AVEC
+
     }
 }
