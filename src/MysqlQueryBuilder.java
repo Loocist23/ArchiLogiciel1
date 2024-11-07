@@ -5,7 +5,7 @@ class MysqlQueryBuilder implements QueryBuilder {
     private String table;
     private String select;
     private String limit;
-    private List<String> where = new ArrayList<>();
+    private final List<String> where = new ArrayList<>();
 
     @Override
     public String buildQuery() {

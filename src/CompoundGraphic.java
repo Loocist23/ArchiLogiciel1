@@ -1,10 +1,10 @@
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CompoundGraphic implements Graphic {
     private int x;
     private int y;
-    private List<Graphic> children = new ArrayList<>();
+    private final List<Graphic> children = new ArrayList<>();
 
     public CompoundGraphic(int x, int y) {
         this.x = x;

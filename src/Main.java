@@ -108,5 +108,94 @@ public class Main {
         // Réafficher le contenu de root
         System.out.println("\nContenu de root après déplacement:");
         root.draw();
+
+        /////////////////////////////////
+
+        // ON TEST AVEC UN OBSERVER
+
+        // Instancier LaPoste
+        LaPoste laPoste = new LaPoste();
+
+        // Créer 5 maisons
+        Maison maison1 = new Maison("Maison 1");
+        Maison maison2 = new Maison("Maison 2");
+        Maison maison3 = new Maison("Maison 3");
+        Maison maison4 = new Maison("Maison 4");
+        Maison maison5 = new Maison("Maison 5");
+
+        // Ajouter 4 maisons à LaPoste
+        laPoste.subscribe(maison1);
+        laPoste.subscribe(maison2);
+        laPoste.subscribe(maison3);
+        laPoste.subscribe(maison4);
+
+        // Envoyer un message
+        System.out.println("\n\nPremier message :");
+        laPoste.publish("Bienvenue à LaPoste !");
+
+        // Ajouter 3 nouvelles maisons
+        Maison maison6 = new Maison("Maison 6");
+        Maison maison7 = new Maison("Maison 7");
+        Maison maison8 = new Maison("Maison 8");
+
+        // Ajouter 2 de ces maisons à LaPoste
+        laPoste.subscribe(maison6);
+        laPoste.subscribe(maison7);
+
+        // Envoyer un deuxième message
+        System.out.println("\nDeuxième message :");
+        laPoste.publish("Nouveau message à toutes les maisons abonnées !");
+
+        // On enleve 4 maison a la poste
+        laPoste.unsubscribe(maison8);
+        laPoste.unsubscribe(maison6);
+        laPoste.unsubscribe(maison7);
+        laPoste.unsubscribe(maison5);
+
+        // Envoyer un message
+        System.out.println("\nTroisieme message :");
+        laPoste.publish("HAAAAAAAAAAAAA");
+
+
+        /////////////////////////////////////////
+
+        // ON TEST AVEC UNE STRATEGY
+
+        System.out.println("\n\n");
+
+        // Initialisation avec une stratégie PayPal
+        Context context = new Context(new PayByPaypal());
+        context.pay(100);
+
+        // Changer la stratégie pour un paiement par carte de crédit
+        context.changeStrategy(new PayByCreditCard());
+        context.pay(200);
+
+        // Changer la stratégie pour un paiement en espèces
+        context.changeStrategy(new PayByCash());
+        context.pay(50);
+
+        /////////////////////////////////////////
+
+        // ON TEST AVEC UN MEDIATOR
+
+        System.out.println("\n\n");
+
+        // Création des tours de contrôle
+        RoissyCDG roissy = new RoissyCDG();
+        NYLaGuardia laGuardia = new NYLaGuardia();
+
+        // Création des appareils
+        Appareil airbus1 = new Airbus("A320", roissy);
+        Appareil boeing1 = new Boeing("737", roissy);
+        Appareil helico1 = new Helico("H1", laGuardia);
+
+        // Tester la communication via RoissyCDG
+        airbus1.envoyerMessage("Demande d'autorisation de décollage.");
+        boeing1.envoyerMessage("Demande d'atterrissage.");
+
+        // Tester la communication via NYLaGuardia
+        helico1.envoyerMessage("En route vers le point de rendez-vous.");
+
     }
 }

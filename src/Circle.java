@@ -1,7 +1,8 @@
 public class Circle extends Shape {
     public double radius;
 
-    public Circle() {}
+    public Circle() {
+    }
 
     public Circle(Circle circle) {
         super(circle);

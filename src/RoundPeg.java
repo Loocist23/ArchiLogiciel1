@@ -1,5 +1,5 @@
 public class RoundPeg {
-    private double radius;
+    private final double radius;
 
     public RoundPeg(double radius) {
         this.radius = radius;

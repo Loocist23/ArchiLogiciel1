@@ -1,5 +1,5 @@
 public class CircleComposite extends Dot {
-    private int radius;
+    private final int radius;
 
     public CircleComposite(int x, int y, int radius) {
         super(x, y);

@@ -3,7 +3,8 @@ public abstract class Shape {
     public int y;
     public String color;
 
-    public Shape() {}
+    public Shape() {
+    }
 
     public Shape(Shape shape) {
         if (shape != null) {

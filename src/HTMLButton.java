@@ -8,6 +8,6 @@ public class HTMLButton implements Button {
 
     @Override
     public void render() {
-        System.out.println("<button>"+ text + "</button>");
+        System.out.println("<button>" + text + "</button>");
     }
 }

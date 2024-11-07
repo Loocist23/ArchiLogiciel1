@@ -1,5 +1,5 @@
 public class SquarePeg {
-    private double width;
+    private final double width;
 
     public SquarePeg(double width) {
         this.width = width;

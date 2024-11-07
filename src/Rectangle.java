@@ -2,7 +2,8 @@ public class Rectangle extends Shape {
     public int width;
     public int height;
 
-    public Rectangle() {}
+    public Rectangle() {
+    }
 
     public Rectangle(Rectangle rectangle) {
         super(rectangle);

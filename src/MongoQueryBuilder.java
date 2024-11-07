@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MongoQueryBuilder implements QueryBuilder {
     private String collection;
-    private List<String> selectFields = new ArrayList<>();
-    private List<String> whereConditions = new ArrayList<>();
+    private final List<String> selectFields = new ArrayList<>();
+    private final List<String> whereConditions = new ArrayList<>();
     private int limit = 0;
     private int offset = 0;
 
@@ -65,9 +66,7 @@ public class MongoQueryBuilder implements QueryBuilder {
     @Override
     public QueryBuilder select(String collection, String[] fields) {
         this.collection = collection;
-        for (String field : fields) {
-            selectFields.add(field);
-        }
+        Collections.addAll(selectFields, fields);
         return this;
     }
 

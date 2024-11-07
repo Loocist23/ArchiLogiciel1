@@ -1,3 +1,3 @@
 public interface ButtonFactory {
-    public Button createButton();
+    Button createButton();
 }

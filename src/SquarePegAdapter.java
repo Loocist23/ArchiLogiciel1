@@ -1,5 +1,5 @@
 public class SquarePegAdapter extends RoundPeg {
-    private SquarePeg squarePeg;
+    private final SquarePeg squarePeg;
 
     public SquarePegAdapter(SquarePeg squarePeg) {
         super(0); // Appel du constructeur de RoundPeg avec un rayon de 0 (le rayon est calculé différemment)
